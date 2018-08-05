@@ -24,3 +24,22 @@ normed_data, ranges, min_vals = auto_norm(data_matrix)
 print(normed_data)
 print(ranges)
 print(min_vals)
+
+test_rate = 0.1
+test_num = int(test_rate * data_matrix.shape[0])
+
+err_count = 0
+
+for i in range(test_num):
+    result = classify0(
+        normed_data[i],
+        normed_data[test_num: data_matrix.shape[0], :],
+        class_labels[test_num: data_matrix.shape[0]],
+        3)
+    print('real answer: %d \t result: %d' % (class_labels[i], result))
+    if result != class_labels[i]:
+        print('[ERROR]')
+        err_count += 1
+
+print('err rate: %f' % (err_count / float(test_num)))
+
