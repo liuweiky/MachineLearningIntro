@@ -1,4 +1,5 @@
 from chapter03.trees import *
+from chapter03.tree_plotter import *
 
 data_set = [
     [1, 1, 'yes'],
@@ -18,3 +19,10 @@ labels = ['no surfacing', 'flippers']
 
 my_tree = create_tree(data_set, labels)
 print(my_tree)
+
+my_tree = retrieve_tree(0)
+
+create_plot(my_tree)
+
+# print(get_leaf_num(my_tree))
+# print(get_tree_depth(my_tree))
